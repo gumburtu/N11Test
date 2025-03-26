@@ -1,26 +1,29 @@
 package com;
 
-import org.apache.hc.core5.reactor.Command;
+import pages.ProductDetailPage;
+import pages.ResultPage;
+import pages.TabBarPage;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class N11Test extends BaseTest {
+
     TabBarPage tabBarPage;
     ResultPage resultPage;
     ProductDetailPage productDetailPage;
 
     @Test(priority = 1)
     public void searchTest() {
-        driver.get("https://www.n11.com/");
         tabBarPage = new TabBarPage(driver);
+        tabBarPage.navigateTo("https://www.n11.com/");
         tabBarPage.search("Laptop");
     }
 
     @Test(priority = 2)
     public void resultPageTest() {
         resultPage = new ResultPage(driver);
-        WebElement resultWebElement = resultPage.getResultWebElement();
+        WebElement resultWebElement;
+        resultWebElement = resultPage.getResultWebElement();
         softAssert.assertTrue(resultWebElement.isDisplayed());
         resultPage.clickFirstProduct();
     }
