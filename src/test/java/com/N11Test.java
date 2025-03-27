@@ -25,7 +25,7 @@ public class N11Test extends BaseTest {
         WebElement resultWebElement;
         resultWebElement = resultPage.getResultWebElement();
         softAssert.assertTrue(resultWebElement.isDisplayed());
-        resultPage.clickFirstProduct();
+        resultPage.clickToProduct(2);
     }
 
     @Test(priority = 3)
